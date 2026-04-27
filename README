@@ -8,6 +8,9 @@ Parametrization for metal halide perovskites
 (c) 2024, Junke Jiang, INSA Rennes
 [extension with I, Cs, Pb, recalculating all tables for consistency]
 
+(c) 2026, Junke Jiang, INSA Rennes
+[extension with Br; F retained from pbc-0-3 and S from mio-1-1]
+
 All rights reserved
 
 This work is licensed under the Creative Commons Attribution-ShareAlike 4.0
@@ -30,6 +33,9 @@ halide perovskites. The parameters of H, C, and N may slightly deviate from mio-
 We refer to the detailed documentation in the Slater-Koster files for further
 information. The compression radii of Cs have been taken from Ref.[JCTC13], the
 power of the confinement potential, however, is slightly different.
+The public set contains H, C, N, F, S, Cs, Br, I, and Pb.
+For perov-1-1, H, C, N, Cs, Pb, and I parameters are retained from
+perov-1-0, S parameters from mio-1-1, and F parameters from pbc-0-3.
 
 Note: This set assumes that you use shell-resolved SCC in DFTB. In case you use
 the DFTB+ code, you can achieve it by setting `OrbitalResolvedSCC = Yes`.
@@ -40,6 +46,9 @@ Maximal angular momenta
 H: s
 C: p
 N: p
+F: p
+S: d
+Br: p
 I: p
 Cs: s
 Pb: p
@@ -60,8 +69,18 @@ C:
 N:
      -0.03318     -0.02755
      -0.02755     -0.02545
+F:
+     -0.03698     -0.03124
+     -0.03124     -0.02990
+S:
+     -0.02137     -0.01699     -0.01699
+     -0.01699     -0.01549     -0.01549
+     -0.01699     -0.01549     -0.01549
 Cs:
      -0.00949
+Br:
+     -0.01839     -0.01435
+     -0.01435     -0.01376
 I:
      -0.01445     -0.01132
      -0.01132     -0.01145
@@ -79,10 +98,13 @@ NOTABENE: NO REPULSIVE potential is provided; there is a dummy spline only.
 
 Relevant publications
 =====================
+[JCP26] J. Jiang et al., J. Chem. Phys. (2026), in peer review.
 
 [PRMat25] J. Jiang et al., Phys. Rev. Materials 9, 023803 (2025).
 
 [JCTC13] M. Wahiduzzaman et al., J. Chem. Theory Comput. 9, 9, 4006 (2013).
+
+[SurfSci06] C. Koehler et al., Surf. Sci., 600, 453, (2006). 
 
 [PRB98] M. Elstner, D. Porezag, G. Jungnickel, J. Elsner, M. Haugk,
 Th. Frauenheim, S. Suhai, and G. Seifert, Phys. Rev. B 58, 7260 (1998).
@@ -91,7 +113,9 @@ Th. Frauenheim, S. Suhai, and G. Seifert, Phys. Rev. B 58, 7260 (1998).
 Required references
 ===================
 
-H,C,N - H,C,N:      [PRMat25,PRB98]
-H,C,N,I,Cs,Pb - I:  [PRMat25]
-H,C,N,I,Cs,Pb - Cs: [PRMat25,JCTC13]
-H,C,N,I,Cs,Pb - Pb: [PRMat25]
+H,C,N,S - H,C,N,S:             [PRMat25,JCP26,PRB98]
+H,C,N,F,S,Cs,Br,I,Pb - F:      [SurfSci06]
+H,C,N,F,S,Cs,Br,I,Pb - Br:     [JCP26]
+H,C,N,F,S,Cs,Br,I,Pb - I:      [PRMat25]
+H,C,N,F,S,Cs,Br,I,Pb - Cs:     [PRMat25,JCTC13]
+H,C,N,F,S,Cs,Br,I,Pb - Pb:     [PRMat25]
